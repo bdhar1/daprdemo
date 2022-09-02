@@ -1,0 +1,11 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: pgstatestore
+  namespace: daprdemo
+spec:
+  type: state.postgresql
+  version: v1
+  metadata:
+  - name: connectionString
+    value: "host=daprdemo.postgres.database.azure.com port=5432 dbname=daprdemo user=pgadmin password=Kolkata@1 sslmode=require"
