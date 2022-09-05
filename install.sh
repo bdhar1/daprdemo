@@ -43,3 +43,9 @@ az aks update \
 
 # Check for KEDA enabled state
 az aks show -g "rg-dapr-demo" -n "aks-dapr-demo" --query "workloadAutoScalerProfile.keda.enabled" 
+
+# Local DAPR simulation -- Service 2
+dapr run --app-port 8080 --app-id ServiceApp2 --app-protocol http --dapr-http-port 3500 -- python3 main.py
+
+# Service 1
+dapr run --app-port 8081 --app-id ServiceApp1 --app-protocol http --dapr-http-port 3501 --components-path ../../components -- python3 main.py
