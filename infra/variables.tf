@@ -3,7 +3,7 @@
 variable "rg_name" {
   type        = string
   description = "The name of the resource group"
-  default     = "rg-dapr-demo"
+  default     = "dev-vdi-vm005-sandbox-rg"
 }
 
 variable "rg_location" {
@@ -15,7 +15,7 @@ variable "rg_location" {
 variable "acr_name" {
   type        = string
   description = "Name of the Azure Container Registry"
-  default     = "acrdaprdemo1001"
+  default     = "acrdaprdemo1001aa"
 }
 
 variable "aks_name" {
@@ -27,23 +27,23 @@ variable "aks_name" {
 variable "evgt_name" {
   type        = string
   description = "The name of the Event Grid topic"
-  default     = "daprdemo-evgt"
+  default     = "daprdemo1aa-evgt"
 }
 
 variable "sbns_name" {
   type        = string
   description = "The name of the Service Bus namespace"
-  default     = "daprdemo-sbns"
+  default     = "daprdemo1-sbns"
 }
 
 variable "pgsql_name" {
   type        = string
   description = "Name of the PostgreSQL Flexible Server"
-  default     = "daprdemo"
+  default     = "daprdemo1aaa"
 }
 
 variable "cmdb_name" {
   type        = string
   description = "Name of the Cosmos DB Account"
-  default     = "cmdb-daprdemo"
+  default     = "cmdb-daprdemoaa"
 }

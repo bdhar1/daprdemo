@@ -8,4 +8,4 @@ spec:
   version: v1
   metadata:
   - name: connectionString
-    value: "host=daprdemo1.postgres.database.azure.com port=5432 dbname=daprdemo user=pgadmin password=Kolkata@1 sslmode=require"
+    value: "host=daprdemo1aaa.postgres.database.azure.com port=5432 dbname=daprdemo user=pgadmin password=Kolkata@1 sslmode=require"

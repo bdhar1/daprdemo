@@ -1,0 +1,17 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: cosmosdb
+  namespace: daprdemo
+spec:
+  type: state.azure.cosmosdb
+  version: v1
+  metadata:
+  - name: url
+    value: "https://cmdb-daprdemoaa.documents.azure.com:443/"
+  - name: masterKey
+    value: "Tgjn4lXvGTWnEttDphCiU0G985syVDq0MNFn83YyLrYXUjUDzeyh9kfGLaDO7dX7HCpb7YRIPi3WGytPf46HaA=="
+  - name: database
+    value: "daprdemo"
+  - name: collection
+    value: "daprdemo"

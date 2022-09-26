@@ -1,0 +1,42 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: service3
+  labels:
+    app: service3
+spec:
+  selector:
+    app: service3
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service3
+  labels:
+    app: service3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service3
+  template:
+    metadata:
+      labels:
+        app: service3
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "service3"
+        dapr.io/enable-api-logging: "true"
+        dapr.io/port: "8002"
+    spec:
+      containers:
+      - name: service3
+        image: acrdaprdemo1001aa.azurecr.io/service3:0.2
+        ports:
+        - containerPort: 8001

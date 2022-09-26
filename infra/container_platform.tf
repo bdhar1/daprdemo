@@ -1,8 +1,8 @@
 
 resource "azurerm_container_registry" "acr" {
   name                = var.acr_name
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
+  resource_group_name = data.azurerm_resource_group.rg.name
+  location            = data.azurerm_resource_group.rg.location
   sku                 = "Basic"
   admin_enabled       = true
 }
@@ -14,10 +14,10 @@ resource "tls_private_key" "pkey" {
 
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = var.aks_name
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
+  resource_group_name = data.azurerm_resource_group.rg.name
+  location            = data.azurerm_resource_group.rg.location
   dns_prefix          = "daprdemo"
-  node_resource_group = "${azurerm_resource_group.rg.name}-nodes"
+  node_resource_group = "${data.azurerm_resource_group.rg.name}-nodes"
 
   default_node_pool {
     name       = "default"
