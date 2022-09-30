@@ -1,0 +1,42 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: service21
+  labels:
+    app: service21
+spec:
+  selector:
+    app: service21
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 7102
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service21
+  labels:
+    app: service21
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service21
+  template:
+    metadata:
+      labels:
+        app: service21
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "service21"
+        dapr.io/enable-api-logging: "true"
+        dapr.io/app-port: "7101"
+    spec:
+      containers:
+      - name: service21
+        image: acrdaprdemo1001aa.azurecr.io/service2:0.7
+        ports:
+        - containerPort: 7101

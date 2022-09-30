@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service4
+  labels:
+    app: service4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service4
+  template:
+    metadata:
+      labels:
+        app: service4
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "service4"
+        dapr.io/enable-api-logging: "true"
+    spec:
+      containers:
+      - name: service4
+        image: acrdaprdemo1001aa.azurecr.io/service4:0.1
+        ports:
+        - containerPort: 6003
